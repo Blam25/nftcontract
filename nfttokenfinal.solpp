@@ -255,7 +255,7 @@ getter getactiveauctions() returns(uint256[] memory ids){
 
 }
 /*
-getter getactiveauctions2() returns(uint256[] memory ids){          //assuming getter does now access now this does not function.
+getter getactiveauctions2() returns(uint256[] memory ids){          //assuming getter does not access now this does not function yet.
     uint256[] memory _ids = new uint[](activeauctions.length);
     for(uint i=0; i<activeauctions.length;i++){
         if((nftid[activeauctions[i]].selltime + nftid[activeauctions[i]].starttime) > now){
