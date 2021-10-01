@@ -75,7 +75,7 @@ onMessage mintnft(string calldata _name, address _owner, string calldata link) p
 onMessage sellnft(uint256 identifier, uint256 _price) {
     require(nftid[identifier].approved == msg.sender 
         && nftid[identifier].state == 0
-       // && nftid[identifier].approved == nftid[identifier].owner 
+        && nftid[identifier].approved == nftid[identifier].owner 
     );
     nftid[identifier].price = _price;
     nftid[identifier].state = 1;
@@ -107,7 +107,7 @@ onMessage selltoaddress(uint256 identifier, uint256 _price, address _buyaddress)
     require(
         nftid[identifier].approved == msg.sender 
         && nftid[identifier].state == 0 
-        //&& nftid[identifier].approved == nftid[identifier].owner 
+        && nftid[identifier].approved == nftid[identifier].owner 
     );
     nftid[identifier].price = _price;
     nftid[identifier].state = 2;
@@ -133,7 +133,6 @@ onMessage cancelsales(uint256 identifier) payable{
     && nftid[identifier].state != 3);
     nftid[identifier].state = 0;
     quotapool += msg.amount;
-    //during = activesales[index[identifier]];
     indexsale[activesales[activesales.length-1]] = indexsale[identifier];
     activesales[indexsale[identifier]] = activesales[activesales.length-1];
     activesales.pop();
@@ -142,7 +141,7 @@ onMessage cancelsales(uint256 identifier) payable{
 onMessage startauction(uint256 identifier, uint _startprice, uint256 _selltime) payable{
     require(nftid[identifier].approved == msg.sender 
         && nftid[identifier].state == 0 
-        //&& nftid[identifier].approved == nftid[identifier].owner 
+        && nftid[identifier].approved == nftid[identifier].owner 
         &&  msg.amount >= basefee);
     nftid[identifier].price = _startprice;
     nftid[identifier].buyer = msg.sender;
@@ -199,7 +198,7 @@ onMessage resolveauction(uint256 identifier) payable {
 
 }
 
-onMessage approving(uint256 identifier, address _approve) payable{ //approving/unapproving not fully complete//
+onMessage approving(uint256 identifier, address _approve) payable{ //approving/unapproving not fully complete//allows transfers of nft only not sell/auction
     require(nftid[identifier].owner == msg.sender 
     && nftid[identifier].state == 0
     && msg.amount >= (basefee/2));
