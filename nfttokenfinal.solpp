@@ -60,8 +60,6 @@ onMessage changebasefee(uint256 _basefee){ // if enough quota is reached, or mor
 }
 
 onMessage mintnft(string calldata _name, address _owner, string calldata link) payable {
- //   nftid[newnft] = msg.sender;
-  //  if(nfts[newnft] == 0) {
         require(msg.sender == creator 
         && msg.amount >= basefee);
         nfts.push(counter);
@@ -259,5 +257,4 @@ getter getactiveauctions2() returns(uint256[] memory ids){          //assuming g
     return _ids;
 
 }*/
-//modifier x;
 }
