@@ -226,13 +226,6 @@ getter getnfts() returns(uint256[] memory){
 
 }
 
-//function getsell(uint256 identifier) public returns(bool){
-  //  if(nftid[identifier].selling = false) {
-  //      return(false);
- //       
-  //  }
-  //  else return(true);
-//}
 getter getnftinfo(uint256 identifier) returns(string memory titel, string memory link, string memory by, address owner_, uint256 whencreated, uint256 state, uint256 _price){
     return(nftid[identifier].name, nftid[identifier].link, nftid[identifier].artist2, nftid[identifier].owner, nftid[identifier].creationdate, nftid[identifier].state, nftid[identifier].price);
 }
