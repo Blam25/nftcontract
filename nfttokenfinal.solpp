@@ -164,9 +164,9 @@ onMessage bidauction(uint256 identifier) payable{
     nftid[identifier].buyer = msg.sender;
     nftid[identifier].price = msg.amount;
     quotapool += basefee;}
-    else nftid[identifier].buyer = msg.sender;
+    else {nftid[identifier].buyer = msg.sender;
     nftid[identifier].price = msg.amount;
-    quotapool += basefee;
+    quotapool += basefee;}
 
 }
 
